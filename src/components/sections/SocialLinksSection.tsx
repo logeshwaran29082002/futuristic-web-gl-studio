@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, Youtube, Twitter } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 const socialLinks = [
+  {
+    name: "Instagram",
+    icon: Instagram,
+    url: "https://instagram.com",
+    color: "#E4405F",
+    description: "Life behind the code",
+  },
   {
     name: "LinkedIn",
     icon: Linkedin,
@@ -15,27 +22,6 @@ const socialLinks = [
     url: "https://github.com",
     color: "#FFFFFF",
     description: "Check out my code",
-  },
-  {
-    name: "Instagram",
-    icon: Instagram,
-    url: "https://instagram.com",
-    color: "#E4405F",
-    description: "Life behind the code",
-  },
-  {
-    name: "YouTube",
-    icon: Youtube,
-    url: "https://youtube.com",
-    color: "#FF0000",
-    description: "Tutorials & vlogs",
-  },
-  {
-    name: "Twitter",
-    icon: Twitter,
-    url: "https://twitter.com",
-    color: "#1DA1F2",
-    description: "Tech thoughts",
   },
 ];
 
@@ -60,43 +46,79 @@ const SocialLinksSection = () => {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-8">
           {socialLinks.map((social, index) => (
             <motion.a
               key={social.name}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 30, rotateY: -30 }}
+              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
               viewport={{ once: true }}
               whileHover={{ 
-                y: -10, 
-                scale: 1.05,
+                y: -15, 
+                scale: 1.1,
                 rotateY: 15,
+                boxShadow: `0 25px 50px -15px ${social.color}40`,
               }}
-              className="glass p-6 w-32 text-center group"
-              style={{ transformStyle: "preserve-3d" }}
+              className="glass p-8 w-40 text-center group"
+              style={{ 
+                transformStyle: "preserve-3d",
+                perspective: 1000,
+              }}
             >
+              {/* Floating animation */}
               <motion.div
-                whileHover={{ rotateY: 360 }}
-                transition={{ duration: 0.6 }}
-                className="w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center"
-                style={{ 
-                  backgroundColor: `${social.color}20`,
-                  transformStyle: "preserve-3d",
+                animate={{ 
+                  y: [0, -5, 0],
+                  rotateZ: [0, 2, -2, 0],
                 }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  delay: index * 0.5,
+                  ease: "easeInOut",
+                }}
+                className="relative"
               >
-                <social.icon 
-                  className="w-6 h-6 transition-colors" 
-                  style={{ color: social.color }}
-                />
+                <motion.div
+                  whileHover={{ rotateY: 360 }}
+                  transition={{ duration: 0.8 }}
+                  className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center relative"
+                  style={{ 
+                    backgroundColor: `${social.color}20`,
+                    transformStyle: "preserve-3d",
+                    boxShadow: `0 10px 30px -10px ${social.color}30`,
+                  }}
+                >
+                  {/* Glow effect */}
+                  <motion.div
+                    animate={{ 
+                      opacity: [0.3, 0.6, 0.3],
+                      scale: [1, 1.2, 1],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute inset-0 rounded-2xl"
+                    style={{ 
+                      background: `radial-gradient(circle, ${social.color}30 0%, transparent 70%)`,
+                    }}
+                  />
+                  <social.icon 
+                    className="w-8 h-8 transition-all duration-300 relative z-10" 
+                    style={{ 
+                      color: social.color,
+                      filter: `drop-shadow(0 0 10px ${social.color}60)`,
+                    }}
+                  />
+                </motion.div>
               </motion.div>
-              <p className="font-medium text-sm group-hover:text-primary transition-colors">
+              
+              <p className="font-semibold text-base group-hover:text-primary transition-colors">
                 {social.name}
               </p>
-              <p className="text-xs text-muted-foreground mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+              <p className="text-xs text-muted-foreground mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
                 {social.description}
               </p>
             </motion.a>
