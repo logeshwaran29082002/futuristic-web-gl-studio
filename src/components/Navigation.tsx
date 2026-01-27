@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
   { id: "hero", label: "Home" },
@@ -79,6 +80,9 @@ const Navigation = () => {
               )}
             </button>
           ))}
+
+          <div className="mx-2 h-6 w-px bg-border/60" aria-hidden />
+          <ThemeToggle />
         </div>
       </motion.nav>
 
@@ -91,6 +95,15 @@ const Navigation = () => {
       >
         {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </motion.button>
+
+      {/* Mobile Theme Toggle */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="fixed top-6 left-6 z-50 md:hidden"
+      >
+        <ThemeToggle className="glass rounded-2xl" />
+      </motion.div>
 
       {/* Mobile Menu */}
       <AnimatePresence>

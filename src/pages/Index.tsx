@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "@/components/Navigation";
-import ParticleBackground from "@/components/ParticleBackground";
 import HeroSection from "@/components/sections/HeroSection";
 import Footer from "@/components/Footer";
 
@@ -32,14 +31,8 @@ const Index = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="relative min-h-screen bg-background overflow-x-hidden"
+        className="relative min-h-screen overflow-x-hidden"
       >
-        {/* Particle Background */}
-        <ParticleBackground />
-        
-        {/* Noise Overlay */}
-        <div className="noise-overlay" />
-
         {/* Navigation */}
         <Navigation />
 
