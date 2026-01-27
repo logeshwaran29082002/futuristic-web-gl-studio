@@ -1,9 +1,45 @@
-import { motion } from "framer-motion";
-import { ArrowDown, Download, Mail, Sparkles } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown, Download, Mail } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
+import { useRef } from "react";
 import Scene3D from "../Scene3D";
 import { Button } from "../ui/button";
 
+const socialIcons = [
+  {
+    name: "Instagram",
+    icon: Instagram,
+    url: "https://instagram.com",
+    color: "#E4405F",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    url: "https://linkedin.com",
+    color: "#0A66C2",
+  },
+  {
+    name: "GitHub",
+    icon: Github,
+    url: "https://github.com",
+    color: "#FFFFFF",
+  },
+];
+
 const HeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Profile image animations based on scroll
+  const profileY = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const profileRotateX = useTransform(scrollYProgress, [0, 1], [0, 15]);
+  const profileScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
+  const profileZ = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -35,8 +71,30 @@ const HeroSection = () => {
     },
   };
 
+  // Profile image entrance animation
+  const profileEntrance = {
+    hidden: { 
+      y: -150, 
+      scale: 0.8, 
+      opacity: 0,
+      rotateY: -30,
+    },
+    visible: {
+      y: 0,
+      scale: 1,
+      opacity: 1,
+      rotateY: 0,
+      transition: {
+        duration: 1.2,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0.2,
+      },
+    },
+  };
+
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden"
     >
@@ -52,36 +110,113 @@ const HeroSection = () => {
         animate="visible"
         className="relative z-10 text-center px-6 max-w-5xl mx-auto"
       >
-        <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-2 glass text-sm font-medium text-primary">
-            <Sparkles className="w-4 h-4" />
-            Available for freelance work
-          </span>
+        {/* Profile Image with Scroll Animation */}
+        <motion.div
+          variants={profileEntrance}
+          style={{ 
+            y: profileY, 
+            rotateX: profileRotateX,
+            scale: profileScale,
+            z: profileZ,
+            transformStyle: "preserve-3d",
+            perspective: 1000,
+          }}
+          className="mb-8 flex justify-center"
+        >
+          <motion.div
+            whileHover={{ 
+              scale: 1.05,
+              rotateY: 10,
+              boxShadow: "0 25px 80px -20px hsl(var(--primary) / 0.5)",
+            }}
+            transition={{ duration: 0.4 }}
+            className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-primary/30 shadow-glow"
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            {/* Glowing ring animation */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-2 rounded-full border-2 border-dashed border-primary/40"
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-4 rounded-full border border-secondary/30"
+            />
+            
+            {/* Profile Image */}
+            <div className="w-full h-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center">
+              <span className="text-6xl md:text-7xl font-display font-bold text-gradient">JD</span>
+            </div>
+            
+            {/* Glow overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-primary/20" />
+          </motion.div>
         </motion.div>
 
+        {/* Main Heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-4"
         >
-          <span className="text-foreground">Hi, I'm </span>
-          <span className="text-gradient">John Doe</span>
+          <span className="text-gradient">MERN FULL STACK</span>
+          <br />
+          <span className="text-foreground">DEVELOPER</span>
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light mb-4"
+          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
         >
-          Full Stack Developer & Creative Technologist
+          Building immersive digital experiences with MongoDB, Express, React & Node.js.
+          Crafting the future of web, one component at a time.
         </motion.p>
 
-        <motion.p
+        {/* 3D Social Icons */}
+        <motion.div
           variants={itemVariants}
-          className="text-lg text-muted-foreground/70 max-w-2xl mx-auto mb-12"
+          className="flex justify-center gap-6 mb-10"
         >
-          I craft immersive digital experiences that blend cutting-edge technology
-          with stunning visual design. Let's build something extraordinary together.
-        </motion.p>
+          {socialIcons.map((social, index) => (
+            <motion.a
+              key={social.name}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ y: 0 }}
+              animate={{ 
+                y: [0, -8, 0],
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                delay: index * 0.3,
+                ease: "easeInOut",
+              }}
+              whileHover={{ 
+                scale: 1.3,
+                rotateY: 360,
+                boxShadow: `0 0 30px ${social.color}60`,
+              }}
+              className="w-14 h-14 rounded-xl glass flex items-center justify-center group"
+              style={{ 
+                transformStyle: "preserve-3d",
+                perspective: 500,
+              }}
+            >
+              <social.icon 
+                className="w-7 h-7 transition-all duration-300 group-hover:drop-shadow-lg"
+                style={{ 
+                  color: social.color,
+                  filter: `drop-shadow(0 0 8px ${social.color}40)`,
+                }}
+              />
+            </motion.a>
+          ))}
+        </motion.div>
 
+        {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
           className="flex flex-wrap items-center justify-center gap-4"
