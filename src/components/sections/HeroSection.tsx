@@ -95,7 +95,7 @@ const HeroSection = () => {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden"
+className="relative min-h-[100svh] md:min-h-screen flex items-center justify-center hero-gradient overflow-hidden"
     >
       <Scene3D />
 
@@ -129,7 +129,7 @@ const HeroSection = () => {
               boxShadow: "0 25px 80px -20px hsl(var(--primary) / 0.5)",
             }}
             transition={{ duration: 0.4 }}
-            className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-primary/30 shadow-glow"
+className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-primary/30 shadow-glow"
             style={{ transformStyle: "preserve-3d" }}
           >
             {/* Glowing ring animation */}
@@ -149,7 +149,7 @@ const HeroSection = () => {
  <img
   src="/profile.jpeg"
   alt="Profile"
-  className="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border border-white/20 shadow-lg"
+className="w-full h-full object-cover rounded-full border border-white/20 shadow-lg"
 />
 
 </div>
@@ -163,16 +163,16 @@ const HeroSection = () => {
         {/* Main Heading */}
 <motion.h1
   variants={itemVariants}
-  className="text-4xl md:text-6xl lg:text-6xl font-display font-bold mb-8 flex flex-col gap-3"
+className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 flex flex-col gap-3"
 >
-<span className="relative inline-block text-gradient text-5xl md:text-7xl lg:text-7xl font-extrabold tracking-tight leading-snug drop-shadow-lg">
+<span className="relative inline-block text-gradient text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-snug drop-shadow-lg">
   Logeshwaran M
   <span className="absolute left-1/2 -bottom-2 w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full -translate-x-1/2"></span>
 </span>
 
 
 
-  <span className="text-foreground text-3xl md:text-5xl font-semibold opacity-90">
+  <span className="text-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold opacity-90">
     MERN Full Stack Developer
   </span>
 </motion.h1>
@@ -191,7 +191,8 @@ const HeroSection = () => {
         {/* 3D Social Icons */}
         <motion.div
           variants={itemVariants}
-          className="flex justify-center gap-6 mb-10"
+        className="flex justify-center gap-4 md:gap-6 mb-8"
+
         >
           {socialIcons.map((social, index) => (
             <motion.a
