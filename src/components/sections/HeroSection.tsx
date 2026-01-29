@@ -133,7 +133,7 @@ className="relative hero-gradient overflow-hidden"
   perspective: 1000,
 }}
 
-          className="mb-8 flex justify-center"
+          className="mt-24 mb-8 flex justify-center"
         >
           <motion.div
             whileHover={{ 
