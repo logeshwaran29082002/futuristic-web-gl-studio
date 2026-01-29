@@ -147,7 +147,7 @@ const HeroSection = () => {
             {/* Profile Image */}
            <div className="w-full h-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center">
  <img
-  src="/profile.jpg"
+  src="/profile.jpeg"
   alt="Profile"
   className="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border border-white/20 shadow-lg"
 />
