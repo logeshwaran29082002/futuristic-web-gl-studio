@@ -18,77 +18,106 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "AI Dashboard",
-    description: "Real-time analytics platform powered by machine learning",
+    title: "Movie Ticket Booking System (User App)",
+    description: "Users can browse movies, select seats and book tickets",
     longDescription:
-      "A comprehensive analytics dashboard that leverages machine learning to provide predictive insights. Features include real-time data visualization, automated reporting, and intelligent anomaly detection.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
-    tags: ["React", "Python", "TensorFlow", "D3.js"],
-    liveUrl: "#",
-    githubUrl: "#",
-    color: "#00d4ff",
-  },
-  {
-    id: 2,
-    title: "E-Commerce Platform",
-    description: "Modern shopping experience with AR product previews",
-    longDescription:
-      "A next-generation e-commerce platform featuring augmented reality product previews, AI-powered recommendations, and seamless checkout experience.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
-    tags: ["Next.js", "Stripe", "Three.js", "PostgreSQL"],
-    liveUrl: "#",
-    githubUrl: "#",
-    color: "#a855f7",
-  },
-  {
-    id: 3,
-    title: "Social Media App",
-    description: "Connect and share with privacy-first approach",
-    longDescription:
-      "A privacy-focused social media application with end-to-end encryption, decentralized storage, and innovative content monetization features.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=500&fit=crop",
-    tags: ["React Native", "Node.js", "GraphQL", "Redis"],
-    liveUrl: "#",
-    githubUrl: "#",
-    color: "#06b6d4",
-  },
-  {
-    id: 4,
-    title: "DevOps Automation",
-    description: "Streamline your deployment pipeline",
-    longDescription:
-      "An all-in-one DevOps automation tool that simplifies CI/CD pipelines, infrastructure management, and monitoring with an intuitive interface.",
-    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=500&fit=crop",
-    tags: ["Docker", "Kubernetes", "Go", "Terraform"],
-    liveUrl: "#",
-    githubUrl: "#",
+      "A full-stack movie ticket booking application where users can register, login, browse movies, select seats, make online payments using Stripe, and view booking history with QR tickets.",
+    image:
+      "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=500&fit=crop",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Stripe", "JWT", "REST API"],
+    liveUrl: "https://movie-ticket-booking-lac.vercel.app/",
+    githubUrl:
+      "https://github.com/logeshwaran29082002/movie-ticket-Booking/tree/main/frontend",
     color: "#22c55e",
   },
+
   {
-    id: 5,
-    title: "Music Streaming",
-    description: "Discover and share your favorite tracks",
+    id: 2,
+    title: "Movie Ticket Booking System (Admin Panel)",
+    description: "Admin dashboard to manage movies, shows and bookings",
     longDescription:
-      "A modern music streaming platform with AI-curated playlists, social listening features, and high-fidelity audio streaming.",
-    image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=800&h=500&fit=crop",
-    tags: ["Vue.js", "Node.js", "MongoDB", "WebRTC"],
-    liveUrl: "#",
-    githubUrl: "#",
+      "Admin panel for managing movies, showtimes, seat pricing and monitoring user bookings. Built as a separate frontend application connected to the same backend.",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "REST API"],
+    liveUrl: "https://movie-ticket-booking-nqfa.vercel.app/",
+    githubUrl:
+      "https://github.com/logeshwaran29082002/movie-ticket-Booking/tree/main/admin",
+    color: "#3b82f6",
+  },
+
+  {
+    id: 3,
+    title: "Contact Management System",
+    description: "CRUD application to manage contacts",
+    longDescription:
+      "A full-stack contact management system where users can add, update, delete and search contacts. Built with React frontend and Node.js backend with REST APIs.",
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=500&fit=crop",
+    tags: ["React.js", "Node.js", "Express.js", "REST API"],
+    liveUrl: "https://contact-management-seven-nu.vercel.app/",
+    githubUrl:
+      "https://github.com/logeshwaran29082002/Contact-Management",
     color: "#f59e0b",
   },
   {
-    id: 6,
-    title: "Fitness Tracker",
-    description: "Track your progress with smart analytics",
-    longDescription:
-      "A comprehensive fitness tracking application with wearable device integration, personalized workout plans, and nutritional guidance.",
-    image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&h=500&fit=crop",
-    tags: ["React Native", "Firebase", "HealthKit", "Charts"],
-    liveUrl: "#",
-    githubUrl: "#",
-    color: "#ec4899",
-  },
+  id: 4,
+  title: "Bean Scene Cafe Website",
+  description: "Responsive static cafe website built using HTML & CSS",
+  longDescription:
+    "A modern and responsive cafe website showcasing menu, services, and contact details. Built using pure HTML and CSS and deployed on Vercel.",
+ image: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&h=500&fit=crop",
+
+  tags: ["HTML", "CSS"],
+  liveUrl: "https://bean-scene-phi.vercel.app/",
+  githubUrl: "https://github.com/logeshwaran29082002/bean-scene", // change if repo name different
+  color: "#8664e3",
+},
+{
+  id: 5,
+  title: "Todo List Full Stack Application",
+  description: "Full-stack CRUD todo app with React and Node.js",
+  longDescription:
+    "A MERN stack todo application where users can add, edit, delete and view tasks. Frontend built with React and deployed on Vercel. Backend built with Node.js, Express and MongoDB Atlas, deployed on Render.",
+  image:
+    "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=500&fit=crop",
+  tags: ["React.js", "Node.js", "Express.js", "MongoDB", "REST API"],
+  liveUrl: "https://todo-list-full-stack-three.vercel.app/",
+  githubUrl: "https://github.com/logeshwaran29082002/todo_list_full-Stack",
+  color: "#ef4444",
+},
+{
+  id: 6,
+  title: "Lemon Wares Hosting Website",
+  description: "Responsive static website for web hosting services",
+  longDescription:
+    "A modern responsive static website for a web hosting company showcasing plans, features, testimonials and contact information. Built using HTML, CSS and JavaScript and deployed on Render.",
+image: "https://images.pexels.com/photos/7988116/pexels-photo-7988116.jpeg?auto=compress&cs=tinysrgb&w=800",
+
+  tags: ["HTML", "CSS", "JavaScript"],
+  liveUrl: "https://lemon-wares.onrender.com/",
+  githubUrl: "https://github.com/logeshwaran29082002/lemon-wares",
+  color: "#06b6d4",
+},
+{
+  id: 7,
+  title: "BuildCon Construction Website",
+  description: "Responsive construction company landing page",
+  longDescription:
+    "A responsive static website for a construction company showcasing services, projects, testimonials and contact information. Built using HTML, CSS and JavaScript and deployed on Render.",
+  image:
+    "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
+  tags: ["HTML", "CSS", "JavaScript"],
+  liveUrl: "https://buildcon-si0l.onrender.com/",
+  githubUrl: "https://github.com/logeshwaran29082002/BuildCon",
+  color: "#f97316",
+}
+
+
+
+
 ];
+
 
 const ProjectCard = ({
   project,

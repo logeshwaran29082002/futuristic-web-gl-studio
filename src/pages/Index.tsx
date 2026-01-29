@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 const AboutSection = lazy(() => import("@/components/sections/AboutSection"));
 const SkillsSection = lazy(() => import("@/components/sections/SkillsSection"));
 const ProjectsSection = lazy(() => import("@/components/sections/ProjectsSection"));
-const ArticlesSection = lazy(() => import("@/components/sections/ArticlesSection"));
 const ProfilesSection = lazy(() => import("@/components/sections/ProfilesSection"));
 const ContactSection = lazy(() => import("@/components/sections/ContactSection"));
 const ResumeSection = lazy(() => import("@/components/sections/ResumeSection"));
@@ -52,9 +51,7 @@ const Index = () => {
             <ProjectsSection />
           </Suspense>
 
-          <Suspense fallback={<SectionLoader />}>
-            <ArticlesSection />
-          </Suspense>
+         
 
           <Suspense fallback={<SectionLoader />}>
             <ProfilesSection />

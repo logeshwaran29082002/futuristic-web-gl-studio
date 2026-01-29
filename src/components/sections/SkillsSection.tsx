@@ -15,48 +15,43 @@ interface SkillCategory {
   skills: Skill[];
 }
 
-const skillCategories: SkillCategory[] = [
+const skillCategories = [
   {
     title: "Frontend",
     skills: [
-      { name: "React", level: 95, color: "#61DAFB" },
-      { name: "TypeScript", level: 90, color: "#3178C6" },
-      { name: "Next.js", level: 88, color: "#FFFFFF" },
-      { name: "Tailwind CSS", level: 95, color: "#38B2AC" },
-      { name: "Three.js", level: 75, color: "#00D4FF" },
+      { name: "HTML", level: 85, color: "#E34F26" },
+      { name: "CSS", level: 80, color: "#1572B6" },
+      { name: "JavaScript", level: 85, color: "#F7DF1E" },
+      { name: "React", level: 80, color: "#61DAFB" },
+      { name: "BootStrap", level: 75, color: "#7952B3" }
     ],
   },
   {
     title: "Backend",
     skills: [
-      { name: "Node.js", level: 88, color: "#339933" },
-      { name: "Python", level: 82, color: "#3776AB" },
-      { name: "PostgreSQL", level: 85, color: "#336791" },
-      { name: "GraphQL", level: 80, color: "#E535AB" },
-      { name: "Redis", level: 75, color: "#DC382D" },
+      { name: "Node.js", level: 80, color: "#339933" },
+      { name: "Express.js", level: 78, color: "#AAAAAA" },
     ],
   },
   {
-    title: "Tools & DevOps",
+    title: "Database",
     skills: [
-      { name: "Git", level: 92, color: "#F05032" },
-      { name: "Docker", level: 85, color: "#2496ED" },
-      { name: "AWS", level: 78, color: "#FF9900" },
-      { name: "CI/CD", level: 82, color: "#00D4FF" },
-      { name: "Linux", level: 80, color: "#FCC624" },
+      { name: "MongoDB", level: 75, color: "#47A248" },
     ],
   },
+ 
   {
-    title: "Other",
+    title: "Tools",
     skills: [
-      { name: "Figma", level: 85, color: "#F24E1E" },
-      { name: "Agile", level: 90, color: "#00D4FF" },
-      { name: "Testing", level: 85, color: "#A855F7" },
-      { name: "SEO", level: 75, color: "#34A853" },
-      { name: "Performance", level: 88, color: "#00D4FF" },
+      { name: "Git", level: 80, color: "#F05032" },
+      { name: "GitHub", level: 80, color: "#FFFFFF" },
+      { name: "Postman", level: 75, color: "#FF6C37" },
+      { name: "VS Code", level: 85, color: "#007ACC" },
+      { name: "ChatGPT (AI Assistance)", level: 80, color: "#74AA9C" }
     ],
   },
 ];
+
 
 const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -184,10 +179,10 @@ const SkillsSection = () => {
         >
           <span className="text-primary font-medium mb-4 block">Skills</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-            My <span className="text-gradient">Technical Stack</span>
+            My <span className="text-gradient">MERN Stack Skills</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Technologies I work with to bring ideas to life
+              Tools and technologies I use to build full-stack web applications
           </p>
         </motion.div>
 

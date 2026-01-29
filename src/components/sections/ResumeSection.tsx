@@ -78,6 +78,7 @@ const ResumeSection = () => {
 
                 <Button
                   variant="outline"
+                   onClick={() => window.open("/resume.pdf", "_blank")}
                   className="glass border-primary/30 hover:border-primary/60 font-semibold px-8 py-6 text-lg"
                 >
                   <Eye className="w-5 h-5 mr-2" />

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Linkedin } from "lucide-react";
 
 interface Profile {
   id: number;
@@ -11,37 +11,38 @@ interface Profile {
   stats?: string;
   useIcon?: boolean;
 }
-
 const profiles: Profile[] = [
   {
     id: 1,
     name: "GitHub",
-    username: "@johndoe",
-    url: "https://github.com",
+    username: "logeshwaran29082002",
+    url: "https://github.com/logeshwaran29082002",
     icon: "github",
     color: "#FFFFFF",
-    stats: "500+ contributions",
     useIcon: true,
   },
   {
     id: 2,
-    name: "LeetCode",
-    username: "@johndoe",
-    url: "https://leetcode.com",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png",
-    color: "#FFA116",
-    stats: "300+ problems solved",
+    name: "LinkedIn",
+    username: "logeshwaran2982",
+    url: "https://www.linkedin.com/in/logeshwaran2982",
+    icon: "linkedin",
+    color: "#0A66C2",
+    useIcon: true,
   },
   {
-    id: 3,
-    name: "HackerRank",
-    username: "@johndoe",
-    url: "https://hackerrank.com",
-    icon: "https://cdn.worldvectorlogo.com/logos/hackerrank.svg",
-    color: "#2EC866",
-    stats: "5-star in JavaScript",
-  },
+  id: 3,
+  name: "Naukri",
+  username: "Logesh Waran M",
+  url: "https://www.naukri.com/mnjuser/homepage",
+  icon: "https://cdn.iconscout.com/icon/free/png-256/free-naukri-3521601-2945045.png",
+  color: "#0B66C3",
+  useIcon: false,
+}
+
+
 ];
+
 
 const ProfileCard = ({ profile, index }: { profile: Profile; index: number }) => {
   return (
@@ -104,21 +105,20 @@ const ProfileCard = ({ profile, index }: { profile: Profile; index: number }) =>
             }}
           />
           
-          {profile.useIcon ? (
-            <Github 
-              className="w-8 h-8 relative z-10"
-              style={{ color: profile.color }}
-            />
-          ) : (
-            <img
-              src={profile.icon}
-              alt={profile.name}
-              className="w-8 h-8 object-contain relative z-10"
-              style={{ 
-                filter: profile.name === "LeetCode" ? "invert(1)" : "none",
-              }}
-            />
-          )}
+         {profile.useIcon ? (
+  profile.name === "GitHub" ? (
+    <Github className="w-8 h-8 relative z-10" style={{ color: profile.color }} />
+  ) : profile.name === "LinkedIn" ? (
+    <Linkedin className="w-8 h-8 relative z-10" style={{ color: profile.color }} />
+  ) : null
+) : (
+  <img
+    src={profile.icon}
+    alt={profile.name}
+    className="w-8 h-8 object-contain relative z-10"
+  />
+)}
+
         </motion.div>
 
         {/* Info */}
@@ -175,14 +175,16 @@ const ProfilesSection = () => {
             Profiles
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-            Coding <span className="text-gradient">Profiles</span>
+            Developer
+ <span className="text-gradient"> Profile</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Find me solving problems and contributing to open source
+           Find me building projects and contributing to open source
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
           {profiles.map((profile, index) => (
             <ProfileCard key={profile.id} profile={profile} index={index} />
           ))}

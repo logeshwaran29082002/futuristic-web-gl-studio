@@ -4,24 +4,24 @@ import { Github, Linkedin, Instagram } from "lucide-react";
 import { useRef } from "react";
 import Scene3D from "../Scene3D";
 import { Button } from "../ui/button";
-
+import profileImg from "../../assets/WhatsApp Image 2026-01-29 at 12.56.59 PM.jpeg"
 const socialIcons = [
   {
     name: "Instagram",
     icon: Instagram,
-    url: "https://instagram.com",
+    url: "https://www.instagram.com/cool_crusher_29?igsh=MWU2aW51ZDNxeGRs",
     color: "#E4405F",
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/in/logeshwaran2982",
     color: "#0A66C2",
   },
   {
     name: "GitHub",
     icon: Github,
-    url: "https://github.com",
+    url: "https://github.com/logeshwaran29082002",
     color: "#FFFFFF",
   },
 ];
@@ -146,9 +146,14 @@ const HeroSection = () => {
             />
             
             {/* Profile Image */}
-            <div className="w-full h-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center">
-              <span className="text-6xl md:text-7xl font-display font-bold text-gradient">JD</span>
-            </div>
+           <div className="w-full h-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center">
+  <img
+    src={profileImg}
+    alt="Profile"
+    className="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border border-white/20 shadow-lg"
+  />
+</div>
+
             
             {/* Glow overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-primary/20" />
@@ -156,14 +161,24 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Main Heading */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-4"
-        >
-          <span className="text-gradient">MERN FULL STACK</span>
-          <br />
-          <span className="text-foreground">DEVELOPER</span>
-        </motion.h1>
+<motion.h1
+  variants={itemVariants}
+  className="text-4xl md:text-6xl lg:text-6xl font-display font-bold mb-8 flex flex-col gap-3"
+>
+<span className="relative inline-block text-gradient text-5xl md:text-7xl lg:text-7xl font-extrabold tracking-tight leading-snug drop-shadow-lg">
+  Logeshwaran M
+  <span className="absolute left-1/2 -bottom-2 w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full -translate-x-1/2"></span>
+</span>
+
+
+
+  <span className="text-foreground text-3xl md:text-5xl font-semibold opacity-90">
+    MERN Full Stack Developer
+  </span>
+</motion.h1>
+
+
+
 
         <motion.p
           variants={itemVariants}

@@ -15,11 +15,11 @@ const Footer = () => {
           className="flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-display font-bold text-gradient">JD</span>
+            <span className="text-2xl font-display font-bold text-gradient">LM</span>
           </div>
 
           <p className="flex items-center gap-2 text-muted-foreground text-sm">
-            © {currentYear} John Doe. Crafted with
+            © {currentYear} Logeshwaran M. Crafted with
             <Heart className="w-4 h-4 text-destructive fill-destructive animate-pulse" />
             using React & Framer Motion
           </p>

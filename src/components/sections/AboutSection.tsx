@@ -5,52 +5,54 @@ import { Code2, Palette, Rocket, Users } from "lucide-react";
 const highlights = [
   {
     icon: Code2,
-    title: "Clean Code",
-    description: "Writing maintainable, scalable, and well-documented code",
-  },
-  {
-    icon: Palette,
-    title: "Creative Design",
-    description: "Crafting beautiful interfaces with attention to detail",
+    title: "MERN Stack Development",
+    description: "Building full-stack applications using MongoDB, Express, React, and Node.js",
   },
   {
     icon: Rocket,
-    title: "Performance",
-    description: "Building lightning-fast applications optimized for scale",
+    title: "Real Project Experience",
+    description: "Developed and deployed real-world projects during internship",
+  },
+  {
+    icon: Palette,
+    title: "Responsive UI",
+    description: "Creating mobile-friendly and modern user interfaces",
   },
   {
     icon: Users,
-    title: "Collaboration",
-    description: "Working effectively in teams and with stakeholders",
+    title: "Quick Learner",
+    description: "Able to learn new technologies and adapt quickly",
   },
 ];
 
+
 const timeline = [
   {
+    year: "2025 - Present",
+    title: "MERN Stack Developer Intern",
+    company: "Squash App PTV Limited",
+    description: "Working on real-world MERN stack applications, building APIs, and contributing to frontend and backend development",
+  },
+  {
+    year: "2025",
+    title: "Backend Development Training",
+    company: "Imagecon Academy, Salem",
+    description: "Learned Node.js, Express.js, MongoDB, Git, GitHub, and REST API development",
+  },
+  {
     year: "2024",
-    title: "Senior Full Stack Developer",
-    company: "Tech Innovators Inc.",
-    description: "Leading development of enterprise-scale applications",
+    title: "Frontend Development Training",
+    company: "Imagecon Academy, Salem",
+    description: "Learned HTML, CSS, BootStrap, JavaScript, React.js and responsive web design",
   },
   {
-    year: "2022",
-    title: "Full Stack Developer",
-    company: "Digital Solutions Ltd.",
-    description: "Built multiple successful SaaS products from ground up",
-  },
-  {
-    year: "2020",
-    title: "Frontend Developer",
-    company: "Creative Agency Co.",
-    description: "Developed interactive web experiences for top brands",
-  },
-  {
-    year: "2018",
-    title: "Started Coding Journey",
-    company: "Self-taught",
-    description: "Fell in love with programming and never looked back",
+    year: "2023",
+    title: "BBA Graduate",
+    company: "Karpagam College, Coimbatore",
+    description: "Completed Bachelor of Business Administration (BBA)",
   },
 ];
+
 
 const AboutSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -88,8 +90,10 @@ const AboutSection = () => {
             Passionate About <span className="text-gradient">Creating</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            With over 6 years of experience in web development, I specialize in
-            building modern, performant applications that users love.
+           I am a MERN Stack Developer with hands-on internship experience in building
+full-stack web applications using MongoDB, Express, React, and Node.js.
+I enjoy creating responsive, user-friendly interfaces and scalable backend systems.
+.
           </p>
         </motion.div>
 
