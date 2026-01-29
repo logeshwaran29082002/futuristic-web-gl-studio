@@ -4,7 +4,6 @@ import { Github, Linkedin, Instagram } from "lucide-react";
 import { useRef } from "react";
 import Scene3D from "../Scene3D";
 import { Button } from "../ui/button";
-import profileImg from "../../assets/WhatsApp Image 2026-01-29 at 12.56.59 PM.jpeg"
 const socialIcons = [
   {
     name: "Instagram",
@@ -147,11 +146,12 @@ const HeroSection = () => {
             
             {/* Profile Image */}
            <div className="w-full h-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center">
-  <img
-    src={profileImg}
-    alt="Profile"
-    className="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border border-white/20 shadow-lg"
-  />
+ <img
+  src="/profile.jpg"
+  alt="Profile"
+  className="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border border-white/20 shadow-lg"
+/>
+
 </div>
 
             
