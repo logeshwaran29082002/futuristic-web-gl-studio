@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Download, Mail } from "lucide-react";
 import { Github, Linkedin, Instagram } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Scene3D from "../Scene3D";
 import { Button } from "../ui/button";
 const socialIcons = [
@@ -26,6 +26,14 @@ const socialIcons = [
 ];
 
 const HeroSection = () => {
+  const [enableScrollAnim, setEnableScrollAnim] = useState(false);
+
+useEffect(() => {
+  if (window.innerWidth >= 1024) {
+    setEnableScrollAnim(true);
+  }
+}, []);
+
   const sectionRef = useRef<HTMLElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -95,9 +103,12 @@ const HeroSection = () => {
     <section
       ref={sectionRef}
       id="hero"
-className="relative min-h-[100svh] md:min-h-screen flex items-center justify-center hero-gradient overflow-hidden"
+className="relative hero-gradient overflow-hidden"
     >
-      <Scene3D />
+     <div className="absolute inset-0 -z-10">
+  <Scene3D />
+</div>
+
 
       {/* Gradient Orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob" />
@@ -107,19 +118,21 @@ className="relative min-h-[100svh] md:min-h-screen flex items-center justify-cen
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 text-center px-6 max-w-5xl mx-auto"
+     className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center justify-center min-h-[100svh]"
+
       >
         {/* Profile Image with Scroll Animation */}
         <motion.div
           variants={profileEntrance}
           style={{ 
-            y: profileY, 
-            rotateX: profileRotateX,
-            scale: profileScale,
-            z: profileZ,
-            transformStyle: "preserve-3d",
-            perspective: 1000,
-          }}
+  y: enableScrollAnim ? profileY : 0, 
+  rotateX: enableScrollAnim ? profileRotateX : 0,
+  scale: enableScrollAnim ? profileScale : 1,
+  z: enableScrollAnim ? profileZ : 0,
+  transformStyle: "preserve-3d",
+  perspective: 1000,
+}}
+
           className="mb-8 flex justify-center"
         >
           <motion.div
